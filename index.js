@@ -33,7 +33,7 @@ var downloads = function(uri, filename, callback){
 async function fetch_data(uri){
   let url= new URL(uri);
   url.searchParams.set("client_id","ATudurADXx-6dMz3D-dL8Y4DTAUZ0wumV_lqzkm7hSA");
-  url.searchParams.set("per_page", "30");
+  url.searchParams.set("per_page", "100");
   // url.searchParams.set("id","11987944")
   // url.searchParams.set("order_by","popular");
   // url.searchParams.set("orientation","landscape")
