@@ -19,3 +19,16 @@ async function unsplash_fetch_random() {
   console.log(b);
 }
 
+  // var xhttp = new XMLHttpRequest();
+
+  // // Tasker toast message
+  // // flash("Yea.");
+
+  // xhttp.open(method, url, false);
+  // xhttp.send(formData);
+
+  // // Get the response
+  // if (xhttp.status > 0) {
+  //   myresult = xhttp.responseText;
+  //   console.log(myresult);
+  // }

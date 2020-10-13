@@ -1,8 +1,9 @@
 
+// const fetch = require('node-fetch')
 async function unsplash_fetch_random() {
-  const url= new URL("https://api.unsplash.com/collections/11987944/photos");
+  const url= new URL("https://api.unsplash.com/collections/2311544/photos");
   url.searchParams.set("client_id","ATudurADXx-6dMz3D-dL8Y4DTAUZ0wumV_lqzkm7hSA");
-  // url.searchParams.set("per_page", "10");
+  url.searchParams.set("per_page", "10");
   // url.searchParams.set("id","11987944")
   // url.searchParams.set("order_by","popular");
   // url.searchParams.set("orientation","landscape")
@@ -14,7 +15,8 @@ const b=  await a.json();
 b.forEach(element => {
   let title = element.alt_description;
   let blob_URL =element.urls.thumb;
-  load_image(blob_URL,title);
+  //load_image(blob_URL,title);
+download(title,blob_URL);
 });
 console.log(b);
 }
@@ -45,19 +47,43 @@ function send_to_telegram(blob,title) {
     method:"POST",
     body:formData
   });
-  // var xhttp = new XMLHttpRequest();
-
-  // // Tasker toast message
-  // // flash("Yea.");
-
-  // xhttp.open(method, url, false);
-  // xhttp.send(formData);
-
-  // // Get the response
-  // if (xhttp.status > 0) {
-  //   myresult = xhttp.responseText;
-  //   console.log(myresult);
-  // }
 }
 
 unsplash_fetch_random();
+
+
+function send_to_telegrams(blob,title) {
+  var url = "https://api.telegram.org/bot917755688:AAEU2YVG_MT3EnlrYDSRPYuJzLy0WIWTMGY/sendPhoto";
+  var method = "POST";
+  
+  fetch(url,{
+    method:"POST",
+    body:blob,
+    headers:{
+      "Content-Type":"application/json"
+    }
+  });
+
+}
+
+
+     function download(file, text) { 
+              
+                //creating an invisible element 
+                var element = document.createElement('a'); 
+                element.setAttribute('href',  
+                'data:image/octet-stream;blob' 
+                + encodeURIComponent(text)); 
+                element.setAttribute('download', file); 
+              
+
+                // Above code is equivalent to 
+                // <a href="path of file" download="file name"> 
+              
+                document.body.appendChild(element); 
+              
+                //onClick property 
+                element.click(); 
+              
+                document.body.removeChild(element); 
+            }

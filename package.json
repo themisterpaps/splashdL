@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "fs": "^0.0.1-security",
+    "node-fetch": "^2.6.1",
+    "readline": "^1.3.0",
+    "request": "^2.88.2"
+  },
+  "dependencies": {
+    "image-downloader": "^4.0.1"
+  }
+}
