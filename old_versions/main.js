@@ -12,11 +12,12 @@ async function unsplash_fetch_random() {
 
 const a= await fetch(url);
 const b=  await a.json();
+
 b.forEach(element => {
   let title = element.alt_description;
   let blob_URL =element.urls.thumb;
-  //load_image(blob_URL,title);
-download(title,blob_URL);
+  load_image(blob_URL,title);
+//download(title,blob_URL);
 });
 console.log(b);
 }
@@ -52,7 +53,7 @@ function send_to_telegram(blob,title) {
 unsplash_fetch_random();
 
 
-function send_to_telegrams(blob,title) {
+function send_to_telegram(blob,title) {
   var url = "https://api.telegram.org/bot917755688:AAEU2YVG_MT3EnlrYDSRPYuJzLy0WIWTMGY/sendPhoto";
   var method = "POST";
   
@@ -67,23 +68,4 @@ function send_to_telegrams(blob,title) {
 }
 
 
-     function download(file, text) { 
-              
-                //creating an invisible element 
-                var element = document.createElement('a'); 
-                element.setAttribute('href',  
-                'data:image/octet-stream;blob' 
-                + encodeURIComponent(text)); 
-                element.setAttribute('download', file); 
-              
-
-                // Above code is equivalent to 
-                // <a href="path of file" download="file name"> 
-              
-                document.body.appendChild(element); 
-              
-                //onClick property 
-                element.click(); 
-              
-                document.body.removeChild(element); 
-            }
+   

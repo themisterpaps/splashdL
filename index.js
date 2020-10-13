@@ -1,6 +1,8 @@
 const fetch = require('node-fetch');
 const download = require('image-downloader');
 const fs = require('fs'), request = require('request');
+const { title } = require('process');
+const { Console } = require('console');
 
 
 const readline = require('readline').createInterface({
@@ -28,14 +30,8 @@ var downloads = function(uri, filename, callback){
   });
 };
 
-
-
-async function unsplash_fetch_random(collection_nr) {
-  const folder = "images/"+collection_nr;
-  if (!collection_nr) {
-    collection_nr="2311544"
-  }
-  const url= new URL(`https://api.unsplash.com/collections/${collection_nr}/photos`);
+async function fetch_data(uri){
+  let url= new URL(uri);
   url.searchParams.set("client_id","ATudurADXx-6dMz3D-dL8Y4DTAUZ0wumV_lqzkm7hSA");
   url.searchParams.set("per_page", "30");
   // url.searchParams.set("id","11987944")
@@ -46,12 +42,25 @@ async function unsplash_fetch_random(collection_nr) {
 
 
 const post_data= await fetch(url);
-const posts_array=  await post_data.json();
-create_dir(folder);
+const posts=  await post_data.json();
+return posts
+}
+
+async function unsplash_fetch_random(collection_nr) {
+  let folder = "images/"+collection_nr;
+  if (!collection_nr) {
+    collection_nr="2311544"
+  }
+  const photos_url= `https://api.unsplash.com/collections/${collection_nr}/photos`;
+  posts_array = await fetch_data(photos_url);
+  collection_title = await fetch_data(`https://api.unsplash.com/collections/${collection_nr}`);
+  console.log("___________________", collection_title);
+  folder="images/"+collection_nr+" - "+collection_title.title;
+  create_dir(folder);
 
 posts_array.forEach(element => {
   let title = element.alt_description;
-  let blob_URL = ""+element.urls.full;
+  let blob_URL = ""+element.urls.raw;
 console.log(title);
 downloads(blob_URL, `${folder}/${title}`+".jpeg", function(){
   console.log('done');
