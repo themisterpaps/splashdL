@@ -6,6 +6,7 @@
     "request": "^2.88.2"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "image-downloader": "^4.0.1"
   }
 }
