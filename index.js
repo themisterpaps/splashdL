@@ -3,7 +3,7 @@ const download = require('image-downloader');
 const fs = require('fs'), request = require('request');
 const { title } = require('process');
 const { Console } = require('console');
-
+const regExp_URL= new RegExp("^([a-zA-Z0-9][^*/><?\|:]*)$");
 
 const readline = require('readline').createInterface({
   input: process.stdin,
@@ -13,7 +13,7 @@ const readline = require('readline').createInterface({
  function create_dir(name) {
     fs.mkdir("./"+name, function(err) {
   if (err) {
-    console.log(err)
+    return
   } else {
     console.log("New directory successfully created.")
   }
@@ -33,7 +33,7 @@ var downloads = function(uri, filename, callback){
 async function fetch_data(uri){
   let url= new URL(uri);
   url.searchParams.set("client_id","ATudurADXx-6dMz3D-dL8Y4DTAUZ0wumV_lqzkm7hSA");
-  url.searchParams.set("per_page", "100");
+  url.searchParams.set("per_page", "200");
   // url.searchParams.set("id","11987944")
   // url.searchParams.set("order_by","popular");
   // url.searchParams.set("orientation","landscape")
@@ -60,6 +60,7 @@ async function unsplash_fetch_random(collection_nr) {
 
 posts_array.forEach(element => {
   let title = element.alt_description;
+  if(title && regExp_URL.test(title)) {title.substr(0,150) } else{title=Math.random().toString(16).slice(2,35)};
   let blob_URL = ""+element.urls.raw;
 console.log(title);
 downloads(blob_URL, `${folder}/${title}`+".jpeg", function(){
