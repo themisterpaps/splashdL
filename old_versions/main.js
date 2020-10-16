@@ -1,5 +1,5 @@
 
-// const fetch = require('node-fetch')
+const fetch = require('node-fetch')
 async function unsplash_fetch_random() {
   const url= new URL("https://api.unsplash.com/collections/2311544/photos");
   url.searchParams.set("client_id","ATudurADXx-6dMz3D-dL8Y4DTAUZ0wumV_lqzkm7hSA");
