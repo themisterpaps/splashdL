@@ -49,7 +49,6 @@ var downloads = function (uri, filename, callback) {
 async function fetch_data(uri, page_nr = 1) {
   let url = new URL(uri);
   url.searchParams.set("client_id", CLIENT_ID);
-  console.log(process.env.CLIENT_ID);
   url.searchParams.set("per_page", COLLECTION_DEFAULT_PHOTOS_PAGE);
   url.searchParams.set("page", page_nr);
   // url.searchParams.set("id","11987944")
@@ -64,7 +63,7 @@ async function fetch_data(uri, page_nr = 1) {
 }
 
 async function unsplash_fetch_random(collection_nr) {
-  let folder = "images/" + collection_nr;
+  let folder = "images/" + collection_nr + " - ";
   if (!collection_nr) {
     collection_nr = "2311544";
   }
@@ -78,7 +77,7 @@ async function unsplash_fetch_random(collection_nr) {
   collection_data = await fetch_data(
     `https://api.unsplash.com/collections/${collection_nr}`
   );
-
+folder = folder + collection_data.title;
   collection_images_nr = parseInt(collection_data.total_photos);
   console.log(collection_images_nr);
 
@@ -97,6 +96,7 @@ async function unsplash_fetch_random(collection_nr) {
        }
       readline.close();
     });
+    
 
   
     console.log(collection_images_pages);
