@@ -12,7 +12,7 @@
 $ npm install
 ```
 ```bash
-$ Yar add
+$ Yarn add
 ```
 **Configure env**
 - Please First go to [Unsplash Developers](https://unsplash.com/documentatio), to get the api api token(client_id);
