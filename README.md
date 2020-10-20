@@ -1,6 +1,6 @@
 # Unsplash Bot
 
-This's is a node.js cli inteface app to download a whole photo colletion on unsplash, just using a collection_id that you can find in the url of the collection on [Unsplash.com](http://unsplash.com); 
+This's is a node.js cli interface app to download a whole photo colletion on unsplash, just using a collection_id that you can find in the url of the collection on [Unsplash.com](http://unsplash.com); 
 
 ## Setup
 **Requeriments**
