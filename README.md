@@ -27,7 +27,7 @@ $ Yar add
 - Go to unsplash and search something (e.g `portait`, `cars`, `car`)
 - Then open the collection tab and chose a collection
 - Opened the collection, on the url you gona see a number like this ./collections/`302501`/people-%26-portraits`
-- Copy this to the console and the magic will starts
+- Copy this to the console and the images going to be downloaded to `images/[collection_id] - [collection_title]`
 
 ## License
 

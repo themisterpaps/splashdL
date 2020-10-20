@@ -66,9 +66,7 @@ async function collection_fetch(collection_id) {
    console.log(">> invalid user input");
    return  
   }
-
-  collection_data = await fetch_data(`http://127.0.0.1:8080/json/app.json`);
-  //collection_data =  await fetch_data(`https://api.unsplash.com/collections/${collection_id}`);
+  collection_data =  await fetch_data(`https://api.unsplash.com/collections/${collection_id}`);
 
   collection_total_photos = parseInt(collection_data.total_photos);
   collection_photos_url= new URL(collection_data.links.photos);
@@ -83,15 +81,13 @@ Fech fotos*/
     	collection_images_pages = collection_images_pages <= 1 ? 2 : collection_images_pages;
     	// getUserInput("Hey there",)
     	 for (let i = 1; i <= collection_images_pages; i++) {
-    	 	 photos_array = await fetch_data(`http://127.0.0.1:8080/images/image.json`, 1);
-    	 	 //photos_array = await fetch_data(collection_photos_url, i);
+    	 	 photos_array = await fetch_data(collection_photos_url, i);
       		 photos_save(photos_array, folder_name);
     	 }
 
      	console.log(collection_images_pages);
  }else{
- 	 photos_array = await fetch_data(`http://127.0.0.1:8080/images/image.json`, 1);
- 	 //photos_array = await fetch_data(collection_photos_url, 1);
+ 	 photos_array = await fetch_data(collection_photos_url, 1);
      photos_save(photos_array, folder_name);
  }
 
@@ -152,7 +148,6 @@ function create_folder(name) {
 }
 
 /*Tests*/
-console.log(" (This app don't prive a good user input validation!!)", unsplash_token);
  getUserInput("\n >>> Hey, what is the number of the collection? ",collection_fetch)
 
 
