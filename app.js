@@ -59,7 +59,7 @@ async function collection_fetch(collection_id) {
   let folder_name = "images/";
   let collection_data;
   let collection_total_photos;
-  let collection_photos;
+
 
   if (!collection_id || isNaN(collection_id)) {
    // getUserInput("Please Enter a Valid input");
@@ -74,7 +74,7 @@ async function collection_fetch(collection_id) {
   folder_name+=collection_data.id+" - "+ validateFileName(collection_data.title);
   create_folder(folder_name);
 /*
-Fech fotos*/
+Fetch photos*/
 
  if (collection_total_photos>30) {
 		let collection_images_pages = parseInt(collection_total_photos / 30);
