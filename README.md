@@ -1,10 +1,10 @@
 # Unsplash Bot
 
-> Tha's is a node.js cli inteface app to download a whole colletion, just using a collection_id that you can find in the url of the collection on [Unsplash.com](http://unsplash.com); 
+A node.js cli interface app to download a whole photo colletion on unsplash, just using a collection_id that you can find in the url of the collection on [Unsplash.com](http://unsplash.com); 
 
 ## Setup
 **Requeriments**
-> You need at least node v4
+> You need at least node v4.0
 
 **Install dependencies**
 
@@ -12,10 +12,10 @@
 $ npm install
 ```
 ```bash
-$ Yar add
+$ Yarn add
 ```
 **Configure env**
-- Please First go to [Unsplash Developers](https://unsplash.com/documentatio), to get the api api token(client_id);
+- Please First go to [Unsplash Developers](https://unsplash.com/documentation), to get the api api token(client_id);
 - Change the constant `unsplash_token` with you api token(clent_id);
 - You are done!!!👌
 
