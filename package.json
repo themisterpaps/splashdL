@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "image-downloader": "^4.0.1"
+    "image-downloader": "^4.0.1",
+    "readline-sync": "^1.4.10"
   }
 }
