@@ -1,11 +1,20 @@
 
 /* 
 Node Dependecies */
-const fetch = require("node-fetch");
-const fs = require("fs");
-const  request = require("request");
-const readline = require("readline").createInterface({ input: process.stdin, output: process.stdout});
-require("dotenv").config();
+`node --trace-warnings ...`
+import * as  fetch  from 'node-fetch';
+//import { fs } from 'fs';
+import * as  request from 'request';
+import * as fs from 'fs';
+import * as readline  from 'readline';
+// const a = import('readline');
+// readline=a.createInterface({ input: process.stdin, output: process.stdout});
+
+var readlineSync = require('readline-sync');
+import dotenv from "dotenv";
+
+
+dotenv.config({ silent: process.env.NODE_ENV === 'production' });
 
 /* 
 Constants*/
