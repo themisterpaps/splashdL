@@ -4,6 +4,7 @@ Node Dependecies */
 const fetch = require("node-fetch");
 const fs = require("fs");
 const  request = require("request");
+
 const readline = require("readline").createInterface({ input: process.stdin, output: process.stdout});
 require("dotenv").config();
 
@@ -61,8 +62,9 @@ async function collection_fetch(collection_id) {
   let collection_total_photos;
 
 
-  if (!collection_id || isNaN(collection_id)) {
+  //if (!collection_id || isNaN(collection_id)) {
    // getUserInput("Please Enter a Valid input");
+   if (!collection_id) {
    console.log(">> invalid user input");
    return  
   }
@@ -118,7 +120,7 @@ function photos_save(images_array, folder) {
   	images_array.forEach((element, index, array) => {
     let title = element.alt_description;
     title = validateFileName(title);
-    let blob_URL = "" + element.urls.raw;
+    let blob_URL = "" + element.urls.thumb;
      
 
     //Write Every single Photo
