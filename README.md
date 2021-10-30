@@ -1,5 +1,12 @@
 # Unsplash Collection Downloader
 
+<div align="center">
+    <img width="450px" src="assets\splashDL-logo_logo_white.svg">
+ 
+[![GitHub license](https://img.shields.io/github/license/themisterpaps/splashDL?logoColor=red)](https://github.com/themisterpaps/splashdl/blob/master/LICENSE)
+![GitHub language count](https://img.shields.io/github/languages/count/themisterpaps/splashdl)
+ </div>
+
 A node.js cli interface app to download a whole photo colletion on unsplash, just using a collection_id that you can find in the url of the collection on [Unsplash.com](http://unsplash.com); 
 
 ## Setup
