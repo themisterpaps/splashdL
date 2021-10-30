@@ -1,20 +1,12 @@
 
 /* 
 Node Dependecies */
-`node --trace-warnings ...`
-import * as  fetch  from 'node-fetch';
-//import { fs } from 'fs';
-import * as  request from 'request';
-import * as fs from 'fs';
-import * as readline  from 'readline';
-// const a = import('readline');
-// readline=a.createInterface({ input: process.stdin, output: process.stdout});
+const fetch = require("node-fetch");
+const fs = require("fs");
+const  request = require("request");
 
-var readlineSync = require('readline-sync');
-import dotenv from "dotenv";
-
-
-dotenv.config({ silent: process.env.NODE_ENV === 'production' });
+const readline = require("readline").createInterface({ input: process.stdin, output: process.stdout});
+require("dotenv").config();
 
 /* 
 Constants*/
@@ -70,8 +62,9 @@ async function collection_fetch(collection_id) {
   let collection_total_photos;
 
 
-  if (!collection_id || isNaN(collection_id)) {
+  //if (!collection_id || isNaN(collection_id)) {
    // getUserInput("Please Enter a Valid input");
+   if (!collection_id) {
    console.log(">> invalid user input");
    return  
   }
@@ -86,7 +79,7 @@ async function collection_fetch(collection_id) {
 Fetch photos*/
 
  if (collection_total_photos>30) {
-		let collection_images_pages = parseInt(collection_total_photos / 30);
+		let collection_images_pages =10 //parseInt(collection_total_photos / 30);
     	collection_images_pages = collection_images_pages <= 1 ? 2 : collection_images_pages;
     	// getUserInput("Hey there",)
     	 for (let i = 1; i <= collection_images_pages; i++) {
