@@ -79,7 +79,7 @@ async function collection_fetch(collection_id) {
 Fetch photos*/
 
  if (collection_total_photos>30) {
-		let collection_images_pages = parseInt(collection_total_photos / 30);
+		let collection_images_pages =10 //parseInt(collection_total_photos / 30);
     	collection_images_pages = collection_images_pages <= 1 ? 2 : collection_images_pages;
     	// getUserInput("Hey there",)
     	 for (let i = 1; i <= collection_images_pages; i++) {
@@ -120,7 +120,7 @@ function photos_save(images_array, folder) {
   	images_array.forEach((element, index, array) => {
     let title = element.alt_description;
     title = validateFileName(title);
-    let blob_URL = "" + element.urls.thumb;
+    let blob_URL = "" + element.urls.raw;
      
 
     //Write Every single Photo
